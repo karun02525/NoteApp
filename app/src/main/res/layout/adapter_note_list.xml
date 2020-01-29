@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/_10sdp"
+    app:elevation="@dimen/_10sdp"
+    android:layout_marginStart="@dimen/_6sdp"
+    android:layout_marginEnd="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_6sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:padding="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_1sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meet" />
+
+        <RelativeLayout
+            android:layout_below="@+id/thumbnail"
+            android:id="@+id/rr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/noteTitle"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:padding="@dimen/_2sdp"
+            android:textSize="@dimen/_14ssp"
+            android:text="Show degnotes with options of"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/noteTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_2sdp"
+            android:textSize="@dimen/_10ssp"
+            android:text="3 hurss awdwdgo" />
+
+    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/noteInfo"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rr"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:padding="@dimen/_3sdp"
+            android:textSize="@dimen/_11ssp"
+            android:text="In Adapter class you are seeing a callback interface which responsible to retry to call API or method in case network failure and server failure. So call back method will call on click of Retr button" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

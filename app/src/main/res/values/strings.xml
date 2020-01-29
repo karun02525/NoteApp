@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NotesApp</string>
+    <string name="loading">Loading…</string>
+    <string name="addTitle">Add Title</string>
+    <string name="addDes">Add Description</string>
+    <string name="upload_media">Upload Media</string>
+    <string name="optional">(Optional)</string>
+    <string name="btn_create">Create</string>
+    <string name="add_note">Add Note</string>
+    <string name="enter_title">Please enter title</string>
+    <string name="enter_descr">Please enter description</string>
+    <string name="action_search">Search by title</string>
+</resources>

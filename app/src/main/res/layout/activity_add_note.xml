@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddNoteActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+        <ImageView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/btnClear"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_clear"
+            android:onClick="btnBack"
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"/>
+
+
+        <TextView
+            android:layout_toRightOf="@+id/btnClear"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@android:color/white"
+            android:text="@string/add_note"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15ssp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="70"
+        android:hint="@string/addTitle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:inputType="textMultiLine"
+            android:maxLines="2"
+            android:id="@+id/editTitle"
+            android:maxLength="70"
+            android:textSize="@dimen/_10ssp"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        app:counterMaxLength="200"
+        app:counterEnabled="true"
+        android:hint="@string/addDes">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:inputType="textMultiLine"
+            android:id="@+id/edit_desc"
+            android:maxLength="200"
+            android:maxLines="4"
+            android:textSize="@dimen/_10ssp"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_layout_upload"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:background="@color/image_bg"
+        android:layout_height="@dimen/_150sdp">
+
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/btnUploadImage"
+            android:src="@drawable/ic_plus"
+            android:onClick="btnUploadImage"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"/>
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/btnUploadImage"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="#5E5D5D"
+            android:text="@string/upload_media"
+            android:textSize="@dimen/_12ssp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+     <ImageView
+         android:visibility="gone"
+         android:id="@+id/imageUpload"
+         android:layout_marginTop="@dimen/_15sdp"
+         android:layout_marginEnd="20dp"
+         android:layout_marginStart="20dp"
+         android:layout_width="match_parent"
+         android:background="@color/image_bg"
+         android:scaleType="centerCrop"
+         android:src="@drawable/meet"
+         android:layout_height="@dimen/_150sdp"/>
+
+        <TextView
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:gravity="right"
+            android:text="@string/optional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/btn_create"
+        android:textStyle="bold"
+        app:strokeColor="@color/cardview_shadow_end_color"
+        app:cornerRadius="6dp"
+        android:background="@color/colorPrimary"
+        android:onClick="btnCreate"
+        android:textColor="@android:color/background_light"
+        android:textAllCaps="false"
+        android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

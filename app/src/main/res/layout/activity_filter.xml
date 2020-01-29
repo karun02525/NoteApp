@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.AddNoteActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.AddNoteActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="Filter"
+            android:textColor="@android:color/white" />
+
+
+        <TextView
+            android:onClick="btnClearAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="Clear all"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginStart="@dimen/_34sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:textSize="@dimen/_15ssp"
+        android:text="Sort By"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <CheckBox
+        android:id="@+id/date"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"/>
+
+    <CheckBox
+        android:id="@+id/media"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Media"/>
+
+
+
+</LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_10ssp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/btnApply"
+        android:layout_marginStart="20dp"
+        android:text="Apply"
+        android:textStyle="bold"
+        app:strokeColor="@color/cardview_shadow_end_color"
+        app:cornerRadius="6dp"
+        android:onClick="btnApply"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/background_light"
+        android:textAllCaps="false"
+        android:layout_height="50dp"/>
+
+
+</RelativeLayout>
