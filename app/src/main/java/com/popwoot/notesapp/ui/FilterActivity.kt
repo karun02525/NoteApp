@@ -2,8 +2,8 @@ package com.popwoot.notesapp.ui
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.popwoot.notesapp.R
 import kotlinx.android.synthetic.main.activity_filter.*
@@ -23,20 +23,30 @@ class FilterActivity : AppCompatActivity() {
 
         if (dateFilter != ""){
             date.isChecked=true
+            btnClearAll.setTextColor(Color.BLUE)
         }
 
         date.setOnCheckedChangeListener { _, isChecked ->
             dateFilter= System.currentTimeMillis().toString()
+            btnClearAll.setTextColor(Color.BLUE)
         }
         media.setOnCheckedChangeListener { _, isChecked ->
+            btnClearAll.setTextColor(Color.BLUE)
+        }
 
+
+        btnClearAll.setOnClickListener {
+            btnClearAll()
+        }
+        btnApply.setOnClickListener {
+            btnApply()
         }
 
     }
 
 
 
-    fun btnApply(view: View) {
+    fun btnApply() {
         val returnIntent = Intent()
         returnIntent.putExtra("dateFilter", dateFilter)
         setResult(Activity.RESULT_OK, returnIntent)
@@ -44,9 +54,11 @@ class FilterActivity : AppCompatActivity() {
 
     }
 
-    fun btnClearAll(view: View) {
+    private fun btnClearAll() {
         date.isChecked=false
         media.isChecked=false
         dateFilter=""
+        btnClearAll.setTextColor(Color.WHITE)
     }
+
 }

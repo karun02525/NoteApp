@@ -5,13 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.AddNoteActivity">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -30,19 +26,19 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_20sdp"
-            android:text="Filter"
+            android:text="@string/filter"
             android:textColor="@android:color/white" />
 
 
         <TextView
-            android:onClick="btnClearAll"
+            android:id="@+id/btnClearAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:text="Clear all"
+            android:text="@string/clear_all"
             android:textColor="@android:color/white" />
 
     </RelativeLayout>
@@ -51,7 +47,7 @@
         android:layout_marginStart="@dimen/_34sdp"
         android:layout_marginTop="@dimen/_30sdp"
         android:textSize="@dimen/_15ssp"
-        android:text="Sort By"
+        android:text="@string/sort_by"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -62,7 +58,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"/>
+        android:text="@string/date"/>
 
     <CheckBox
         android:id="@+id/media"
@@ -70,7 +66,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Media"/>
+        android:text="@string/media"/>
 
 
 
@@ -84,11 +80,10 @@
         android:layout_marginEnd="20dp"
         android:id="@+id/btnApply"
         android:layout_marginStart="20dp"
-        android:text="Apply"
+        android:text="@string/apply"
         android:textStyle="bold"
         app:strokeColor="@color/cardview_shadow_end_color"
         app:cornerRadius="6dp"
-        android:onClick="btnApply"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/background_light"
         android:textAllCaps="false"

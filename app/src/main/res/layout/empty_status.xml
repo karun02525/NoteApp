@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/recy_bg">
+
+
+    <ImageView
+        android:background="@drawable/board"
+        android:layout_gravity="center"
+        android:id="@+id/frameLayoutImage"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:src="@drawable/board" />
+
+
+    <TextView
+        android:layout_marginTop="@dimen/_40sdp"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/_15sdp"
+        android:text="@string/looks_like_empty_here"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/tv_mess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/there_is_no_notes_list" />
+
+</LinearLayout>

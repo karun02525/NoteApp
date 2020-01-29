@@ -15,11 +15,12 @@ import com.popwoot.notesapp.utils.hideSoftKeyboard
 import com.winds.imagepickerlibrary.ImagePicker
 import com.winds.imagepickerlibrary.OnImagePickedListener
 import kotlinx.android.synthetic.main.activity_add_note.*
+import java.io.File
 
 
 class AddNoteActivity : BaseActivity() {
 
-    private var filePath: Uri? = null
+    private var filePath: File? = null
     private val pd by lazy { CustomProgressDialog(this, false) }
     private val mViewModel by lazy { ViewModelProviders.of(this).get(NoteViewModel::class.java) }
     private lateinit var imagePicker: ImagePicker
@@ -44,7 +45,6 @@ class AddNoteActivity : BaseActivity() {
         val path=filePath?:""
         mViewModel.insertData(NoteModel(0,noteTitle,noteDesc,filePath.toString(),System.currentTimeMillis()))
         finish()
-        Log.d(TAG, "submit: $noteTitle $noteDesc $path")
 }
 
 
@@ -52,8 +52,9 @@ class AddNoteActivity : BaseActivity() {
 
         imagePicker = ImagePicker(this, null, object : OnImagePickedListener {
             override fun onImagePicked(imageUri: Uri?) {
-                imageUpload.setImageURI(imageUri)
-                filePath = imageUri
+                imagePicker.setFileSize(700)
+                imageUpload.setImageBitmap(imagePicker.getBitmap())
+                filePath = imagePicker.getImageFile()
                 hideShowView(true)
             }
         }).setWithImageCrop()

@@ -18,8 +18,8 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
        return mRepository?.getAllNote()!!
     }
 
-    fun findCreatedDates(createAt: Long):LiveData<List<NoteModel>> {
-       return mRepository?.findCreatedDates(createAt)!!
+    suspend fun findCreatedDates(createAt: Long):LiveData<List<NoteModel>> {
+       return mRepository?.findCreatedDatesMain(createAt)!!
     }
 
     fun getSearchList(title: String):LiveData<List<NoteModel>> {

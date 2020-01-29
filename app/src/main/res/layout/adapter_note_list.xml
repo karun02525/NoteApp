@@ -23,8 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerCrop"
-            android:src="@drawable/meet" />
+            android:scaleType="centerCrop"/>
 
         <RelativeLayout
             android:layout_below="@+id/thumbnail"
@@ -41,7 +40,6 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:padding="@dimen/_2sdp"
             android:textSize="@dimen/_14ssp"
-            android:text="Show degnotes with options of"
             android:textStyle="bold" />
 
         <TextView
@@ -52,8 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/_2sdp"
-            android:textSize="@dimen/_10ssp"
-            android:text="3 hurss awdwdgo" />
+            android:textSize="@dimen/_10ssp"/>
 
     </RelativeLayout>
 
@@ -70,7 +67,6 @@
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_8sdp"
             android:padding="@dimen/_3sdp"
-            android:textSize="@dimen/_11ssp"
-            android:text="In Adapter class you are seeing a callback interface which responsible to retry to call API or method in case network failure and server failure. So call back method will call on click of Retr button" />
+            android:textSize="@dimen/_11ssp"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

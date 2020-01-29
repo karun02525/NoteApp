@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.popwoot.notesapp.R
 import com.popwoot.notesapp.db.entity.NoteModel
 import com.popwoot.notesapp.utils.agoMinute
+import com.popwoot.notesapp.utils.loadImage
 import kotlinx.android.synthetic.main.adapter_note_list.view.*
+import java.io.File
 
 
 class NoteAdapter(var list: List<NoteModel>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
@@ -32,7 +34,7 @@ class NoteAdapter(var list: List<NoteModel>) : RecyclerView.Adapter<NoteAdapter.
                     if(model.fileUri=="null"){
                         thumbnail.visibility=View.GONE
                     }else{
-                        thumbnail.setImageURI(model.fileUri?.toUri())
+                        thumbnail.loadImage(File(model.fileUri!!).toString())
                         thumbnail.visibility=View.VISIBLE
                     }
 

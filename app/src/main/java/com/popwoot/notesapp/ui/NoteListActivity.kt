@@ -17,6 +17,10 @@ import com.popwoot.notesapp.mvvm.NoteViewModel
 import com.popwoot.notesapp.ui.base.BaseActivity
 import com.popwoot.notesapp.utils.CustomProgressDialog
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class NoteListActivity : BaseActivity() {
@@ -27,6 +31,7 @@ class NoteListActivity : BaseActivity() {
     private val TAG = this::class.java.simpleName
     private var dateFilter = ""
     private var searchView: SearchView? = null
+    private var itemsArray: List<NoteModel>  = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,22 +42,33 @@ class NoteListActivity : BaseActivity() {
 
 
     private fun observeLiveData() {
-        mViewModel.getAllNotes().observe(this, Observer { data ->
-            initAdapter(data)
+        pd.show()
+        mViewModel.getAllNotes().observe(this, Observer {
+            pd.hide()
+            itemsArray=it
+            notifyDataSetChanged()
         })
     }
 
-    private fun initAdapter(data: List<NoteModel>) {
-        mAdapter = NoteAdapter(data.reversed())
+    private fun notifyDataSetChanged() {
+
+        if(itemsArray.isEmpty()){
+            hideShowView(true)
+        }else{
+            hideShowView(false)
+        }
+
+        mAdapter = NoteAdapter(itemsArray.reversed())
         rv_note.adapter = mAdapter
         mAdapter.notifyDataSetChanged()
+
     }
 
     fun btnAddNote(view: View) {
         startActivity(Intent(this@NoteListActivity, AddNoteActivity::class.java))
     }
 
-    
+
     private val onQueryTextListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(query: String): Boolean {
             getDealsFromDb(query)
@@ -65,10 +81,11 @@ class NoteListActivity : BaseActivity() {
         }
 
         private fun getDealsFromDb(searchText: String) {
+            pd.show()
             mViewModel.getSearchList("%$searchText%").observe(this@NoteListActivity, Observer {
-                mAdapter = NoteAdapter(it.reversed())
-                rv_note.adapter = mAdapter
-                mAdapter.notifyDataSetChanged()
+                pd.hide()
+                itemsArray=it
+                notifyDataSetChanged()
             })
 
         }
@@ -103,11 +120,36 @@ class NoteListActivity : BaseActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 dateFilter = data!!.getStringExtra("dateFilter")!!
                 if (dateFilter != "") {
-                    mViewModel.findCreatedDates(dateFilter.toLong())
-                    observeLiveData()
+                    pd.show()
+                    GlobalScope.launch {
+                        withContext(Dispatchers.Main) {
+                            mViewModel.findCreatedDates(dateFilter.toLong())
+                                .observe(this@NoteListActivity, Observer {
+                                    pd.hide()
+                                    itemsArray = it
+                                    notifyDataSetChanged()
+                                })
+                        }
+                    }
                 }
                 Log.d(TAG, "onActivityResult: $dateFilter")
             }
         }
+    }
+
+    private fun hideShowView(flag: Boolean) {
+        if (flag) {
+            rv_note.visibility = View.GONE
+            emptyState.visibility = View.VISIBLE
+        } else {
+            emptyState.visibility = View.GONE
+            rv_note.visibility = View.VISIBLE
+
+        }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        observeLiveData()
     }
 }

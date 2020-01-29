@@ -10,4 +10,12 @@
     <string name="enter_title">Please enter title</string>
     <string name="enter_descr">Please enter description</string>
     <string name="action_search">Search by title</string>
+    <string name="apply">Apply</string>
+    <string name="media">Media</string>
+    <string name="date">Date</string>
+    <string name="sort_by">Sort By</string>
+    <string name="clear_all">Clear all</string>
+    <string name="filter">Filter</string>
+    <string name="looks_like_empty_here">Looks like empty here</string>
+    <string name="there_is_no_notes_list">There is no notes list</string>
 </resources>

@@ -17,7 +17,7 @@ interface NoteDao {
     fun insert(vararg note: NoteModel)
 
 
-    @Query("SELECT * FROM NoteModel WHERE createAt >:createAt")
+    @Query("SELECT * FROM NoteModel WHERE createAt <:createAt")
     fun findCreatedDates(createAt: Long): LiveData<List<NoteModel>>
 
     @Query("SELECT * FROM NoteModel WHERE title LIKE :title")

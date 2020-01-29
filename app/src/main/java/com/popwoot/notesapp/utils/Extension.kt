@@ -4,10 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.room.TypeConverter
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.popwoot.notesapp.R
 import com.winds.timesago.TimeAgo
@@ -46,6 +49,20 @@ fun Long.agoMinute():String{
     val localeBylanguageTag = Locale.forLanguageTag("en")
     val messages = TimeAgoMessages.Builder().withLocale(localeBylanguageTag).build()
     return TimeAgo.using(this, messages)
+}
+
+fun ImageView.loadImage(url: String) {
+    val circularProgressDrawable =
+        CircularProgressDrawable(context)
+    circularProgressDrawable.strokeWidth = 5f
+    circularProgressDrawable.centerRadius = 30f
+    circularProgressDrawable.start()
+
+    Glide.with(context)
+        .load(url)
+        .placeholder(circularProgressDrawable)
+        .fitCenter()
+        .into(this)
 }
 
 class Converters {

@@ -21,8 +21,14 @@ class Repository(application: Application) : CoroutineScope {
 
     fun getAllNote() = mDao.getAllNotes()
 
-    fun findCreatedDates(createAt: Long): LiveData<List<NoteModel>> {
-       return mDao.findCreatedDates(createAt)
+    fun findCreatedDates(createAt: Long){
+        launch { findCreatedDatesMain(createAt) }
+    }
+
+    suspend fun findCreatedDatesMain(createAt: Long): LiveData<List<NoteModel>>  {
+        return withContext(Dispatchers.IO) {
+            return@withContext mDao.findCreatedDates(createAt)
+        }
     }
 
     fun getSearchList(title: String): LiveData<List<NoteModel>> {

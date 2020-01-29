@@ -15,6 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.NoteListActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,6 +32,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
+            android:launchMode="singleTop"
             android:name=".ui.FilterActivity"
             android:theme="@style/AppThemeAdd"
             android:screenOrientation="portrait"/>
