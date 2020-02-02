@@ -7,15 +7,18 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.popwoot.carouselbanner.Banner
 import com.popwoot.notesapp.R
 import com.popwoot.notesapp.adapter.NoteAdapter
 import com.popwoot.notesapp.db.entity.NoteModel
 import com.popwoot.notesapp.mvvm.NoteViewModel
 import com.popwoot.notesapp.ui.base.BaseActivity
 import com.popwoot.notesapp.utils.CustomProgressDialog
+import com.popwoot.notesapp.utils.ImageFactory
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -42,6 +45,7 @@ class NoteListActivity : BaseActivity() {
 
 
     private fun observeLiveData() {
+        banner()
         pd.show()
         mViewModel.getAllNotes().observe(this, Observer {
             pd.hide()
@@ -49,6 +53,29 @@ class NoteListActivity : BaseActivity() {
             notifyDataSetChanged()
         })
     }
+
+
+    private fun banner(){
+        val list = ArrayList<String>()
+        Banner.init(ImageFactory())
+        list.add("https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/06/30/842662-katrinakaif-offbeat-films.jpg")
+        list.add("https://akm-img-a-in.tosshub.com/indiatoday/images/story/201905/AKSHAY1.jpeg?HAKoXX_ba8nMjk4Vo.AOXOxLFBo7E6oY")
+        list.add("https://en.janbharattimes.com/wp-content/uploads/2019/01/salman-khan-movies.jpg")
+        list.add("https://static.asianetnews.com/images/01dax9bpf2hyymhqtbbst7p7tm/--15--1967------------_710x400xt.jpg")
+        list.add("https://www.itl.cat/pngfile/big/86-867177_south-indian-heroine-wallpaper-sabse-badhkar-hum-2.jpg")
+        list.add("https://qph.fs.quoracdn.net/main-qimg-a92551a9b90b6a9df5150157f4ef9ac5.webp")
+
+        banner.setOnCarouselItemChangeListener {
+            //                Toast.makeText(MainActivity.this, String.valueOf(position), Toast.LENGTH_LONG).show();
+        }
+
+
+        banner.setOnCarouselItemClickListener { position, url ->
+            Toast.makeText(this@NoteListActivity, url, Toast.LENGTH_LONG).show()
+        }
+        banner.initBanner(list)
+    }
+
 
     private fun notifyDataSetChanged() {
 

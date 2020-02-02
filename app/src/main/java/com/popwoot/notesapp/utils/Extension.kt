@@ -12,6 +12,7 @@ import androidx.room.TypeConverter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import com.popwoot.carouselbanner.interfaces.CarouselImageFactory
 import com.popwoot.notesapp.R
 import com.winds.timesago.TimeAgo
 import com.winds.timesago.TimeAgoMessages
@@ -65,6 +66,12 @@ fun ImageView.loadImage(url: String) {
         .into(this)
 }
 
+class ImageFactory : CarouselImageFactory {
+    override fun onLoadFactory(url: String, view: ImageView) {
+        Glide.with(view).load(url).into(view)
+    }
+}
+
 class Converters {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
@@ -76,3 +83,4 @@ class Converters {
         return date?.time?.toLong()
     }
 }
+
